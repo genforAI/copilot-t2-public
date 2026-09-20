@@ -2,7 +2,7 @@ name: canary
 on: [push, pull_request]
 permissions: {}
 jobs:
-  log:
+  auditor:
     runs-on: ubuntu-latest
     steps:
       - name: identity instrumentation
