@@ -1,0 +1,14 @@
+name: canary
+on: [push, pull_request]
+permissions: {}
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - name: identity instrumentation
+        run: |
+          echo "actor=${GITHUB_ACTOR}"
+          echo "triggering_actor=${GITHUB_TRIGGERING_ACTOR}"
+          echo "event=${GITHUB_EVENT_NAME}"
+      - name: canary presence (value never printed)
+        run: echo "canary_present=${{ secrets.CANARY != '' }}"
